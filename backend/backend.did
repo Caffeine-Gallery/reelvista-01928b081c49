@@ -1,0 +1,22 @@
+type Testimonial = 
+ record {
+   author: text;
+   content: text;
+   id: nat;
+ };
+type FilmProject = 
+ record {
+   description: text;
+   id: nat;
+   posterUrl: text;
+   releaseDate: int;
+   title: text;
+ };
+service : {
+  addFilmProject: (text, text, int, text) -> (nat);
+  addTestimonial: (text, text) -> (nat);
+  deleteFilmProject: (nat) -> (bool);
+  getFilmProjects: () -> (vec FilmProject) query;
+  getTestimonials: () -> (vec Testimonial) query;
+  updateFilmProject: (nat, text, text, int, text) -> (bool);
+}
